@@ -17,11 +17,11 @@ export default {
 .m-btn2{
     display: flex;
     align-items: center;
-    background-color: #F65454;
+    background-color: #ffffff;
     border-radius: 4px;
     height: 40px;
     font-size: 13px;
-    color: #ffffff;
+    color: black;
     font-family: GoogleSans-Regular;
     padding-left: 16px;
     padding-right: 16px;

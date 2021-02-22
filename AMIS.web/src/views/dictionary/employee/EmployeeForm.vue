@@ -16,26 +16,26 @@
                                     <div>
                                         <label>Mã</label>
                                         <span class="require-charecter">*</span>
-                                        <span class="require-charecter"></span>
+                                        <span class="require-charecter" v-if="checkRequiredField[0] === true">Không được trống</span>
                                     </div>
-                                    <div><input type="text" v-model="employee.EmployeeCode"/></div>
+                                    <div><input type="text" v-model="employeeModel.Employee.EmployeeCode"/></div>
                                 </div>
                                 <div class="employeeName">
                                     <div>
                                         <label>Tên</label>
                                         <span class="require-charecter">*</span>
-                                        <span class="require-charecter"></span>
+                                        <span class="require-charecter" v-if="checkRequiredField[1] === true">Không được trống</span>
                                     </div>
-                                    <div><input type="text" v-model="employee.EmployeeName" /></div>
+                                    <div><input type="text" v-model="employeeModel.Employee.EmployeeName" /></div>
                                 </div>
                             </div>
                             <div class="department">
                                 <div>
                                     <label>Đơn vị</label>
                                     <span class="require-charecter">*</span>
-                                    <span class="require-charecter"></span>
+                                    <span class="require-charecter" v-if="checkRequiredField[2] === true">Không được trống</span>
                                 </div>
-                                <div><select v-model="employee.EmployeeDepartmentId">
+                                <div><select v-model="employeeModel.Employee.EmployeeDepartmentId">
                                         <option v-for="employeeDer in employeeDepartmentList"
                                         :key="employeeDer.EmployeeDepartmentId"
                                         :value="employeeDer.EmployeeDepartmentId">
@@ -46,24 +46,24 @@
                             </div>
                             <div class="position">
                                 <div><label>Chức danh</label></div>
-                                <div><input type="text" v-model="employee.EmployeePosition" /></div>
+                                <div><input type="text" v-model="employeeModel.Employee.EmployeePosition" /></div>
                             </div>
                         </div>
                         <div class="general-right">
                             <div class="dob-gender">
                                 <div class="dob">
                                     <div><label>Ngày sinh</label></div>
-                                    <div><input type="date" v-model="employee.DateOfBirth"/></div>
+                                    <div><input type="date" v-model="employeeModel.Employee.DateOfBirth"/></div>
                                 </div>
                                 <div class="gender">
                                     <div><label>Giới tính</label></div>
                                     <div class="gender-male-female">
                                         <div class="gender-male">
-                                            <div><input type="radio" name="nam" value=0 style="width: auto" v-model="employee.Gender"></div>
+                                            <div><input type="radio" name="nam" value=0 style="width: auto" v-model="employeeModel.Employee.Gender"></div>
                                             <div><label>Nam</label></div>
                                         </div>
                                         <div class="gender-female">
-                                            <div><input type="radio" name="nu" value=1 style="width: auto" v-model="employee.Gender"></div>
+                                            <div><input type="radio" name="nu" value=1 style="width: auto" v-model="employeeModel.Employee.Gender"></div>
                                             <div><label>Nữ</label></div>
                                         </div>
                                     </div>
@@ -72,16 +72,16 @@
                             <div class="identity-date">
                                 <div class="indentity">
                                     <div><label for="">Số CMND</label></div>
-                                    <div><input type="text" v-model="employee.IdentityNumber"></div>
+                                    <div><input type="text" v-model="employeeModel.Employee.IdentityNumber"></div>
                                 </div>
                                 <div class="date">
                                     <div><label for="">Ngày cấp</label></div>
-                                    <div><input type="date" v-model="employee.IdentityDate"></div>
+                                    <div><input type="date" v-model="employeeModel.Employee.IdentityDate"></div>
                                 </div>
                             </div>
                             <div class="identity-address">
                                 <div><label for="">Nơi cấp</label></div>
-                                <div><input type="text" v-model="employee.IdentityPlace"/></div>
+                                <div><input type="text" v-model="employeeModel.Employee.IdentityPlace"/></div>
                             </div>
                         </div>
                     </div>
@@ -93,20 +93,23 @@
                         <div v-if="tabSelected === 'contactContent'" class="contact-content">
                             <div class="contact-address">
                                 <div><label for="">Địa chỉ</label></div>
-                                <div><input type="text" v-model="employee.EmployeeAdress"/></div>
+                                <div><input type="text" v-model="employeeModel.Employee.EmployeeAdress"/></div>
                             </div>
                             <div class="phone-email">
                                 <div class="phoneNumber">
                                     <div><label for="">ĐT di động</label></div>
-                                    <div><input type="text" v-model="employee.PhoneNumber"/></div>
+                                    <div><input type="text" v-model="employeeModel.Employee.PhoneNumber"/></div>
                                 </div>
                                 <div class="teleNumber">
                                     <div><label for="">ĐT cố định</label></div>
-                                    <div><input type="text" v-model="employee.TeleNumber"/></div>
+                                    <div><input type="text" v-model="employeeModel.Employee.TeleNumber"/></div>
                                 </div>
                                 <div class="email">
-                                    <div><label for="">Email</label></div>
-                                    <div><input type="text" v-model="employee.Email"/></div>
+                                    <div>
+                                        <label for="">Email</label>
+                                        <span class="require-charecter" v-if="checkRequiredField[3] === true">Định dạng email chưa đúng</span>
+                                    </div>
+                                    <div><input type="text" v-model="employeeModel.Employee.Email"/></div>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +124,7 @@
                                         <th></th>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="accountBank in accountBankList"
+                                        <tr v-for="accountBank in employeeModel.EmployeeAccountBanks"
                                             :key="accountBank.EmployeeAccountId">
                                             <td><input type="text" v-model="accountBank.EmployeeAccountNumber"/></td>
                                             <td><input type="text" v-model="accountBank.BankName"/></td>
@@ -145,15 +148,15 @@
                 </div>
             </div>
             <div class="footer-form">
-                <div class="cancel" @click="handleCloseForm">
+                <div class="cancel" @click="handleCancle">
                     <BaseCancelButton
                     text="Hủy"/>
                 </div>
-                <div class="update">
+                <div class="update" @click="handleSave">
                     <BaseButton
                     text="Cất"/>
                 </div>
-                <div class="save">
+                <div class="save" @click="handleSave">
                     <BaseButton
                     text="Cất và thêm"/>
                 </div>
@@ -166,6 +169,11 @@
 <script>
 import BaseButton from '../../../components/BaseComponent/BaseButton.vue'
 import BaseCancelButton from '../../../components/BaseComponent/BaseCancelButton.vue'
+import employeeService from '../../../service/employeeService/employeeService'
+import employeeDepartmentService from '../../../service/employeeService/employeeDepartmentService'
+// import employeeBankAccountService from '../../../service/employeeService/employeeAccountBankService'
+import config from '../../../config.json'
+
 export default {
     components: { BaseCancelButton, BaseButton },
     name: "EmployeeForm",
@@ -176,8 +184,11 @@ export default {
     data() {
         return {
             tabSelected: 'contactContent',
+            employeeModel: {
+                EmployeeAccountBanks: [],
+                Employee: {},
+            },
             employeeDepartmentList: [],
-            accountBankList: [],
             accountBank: {
                 EmployeeAccountNumber: '',
                 BankName: '',
@@ -186,7 +197,7 @@ export default {
                 StateAccount: 0,
                 EmployeeId: ''
             },
-            employee: {},
+            checkRequiredField: [false, false, false, false],
         }
     },
 
@@ -195,28 +206,57 @@ export default {
             this.$emit('handleClose', true);
         },
 
+        handleCancle(){
+            this.$emit('handleCancel', true);
+            this.employeeModel = {};
+        },
+
         handleChangeTab(tab){
             this.tabSelected = tab;
         },
 
         handleDeleteAccount(accountBank){
             var newList = [];
-            for (let index = 0; index < this.accountBankList.length; index++) {
-                if(this.accountBankList[index].EmployeeAccountNumber != accountBank.EmployeeAccountNumber){
-                    newList.push(this.accountBankList[index]);
+            for (let index = 0; index < this.employeeModel.EmployeeAccountBanks.length; index++) {
+                if(this.employeeModel.EmployeeAccountBanks[index].EmployeeAccountNumber != accountBank.EmployeeAccountNumber){
+                    newList.push(this.employeeModel.EmployeeAccountBanks[index]);
                 }
             }
-            this.accountBankList = newList;
+            this.employeeModel.EmployeeAccountBanks = newList;
         },
 
         handleAddRow(){
             var accountBank = {};
-            this.accountBankList.push(accountBank);
+            this.employeeModel.EmployeeAccountBanks.push(accountBank);
         },
 
         handleDeleteAll(){
-            this.accountBankList = [];
+            this.employeeModel.EmployeeAccountBanks = [];
+        },
+
+        async handleSave(){
+            this.checkRequiredField = employeeService.validate(this.employeeModel.Employee);
+            var check = 0;
+            for (let index = 0; index < this.checkRequiredField.length; index++) {
+                if(this.checkRequiredField[index] == false){
+                    check ++;
+                }
+            }
+            if(check == 4){
+                var res = await employeeService.saveEmployee(this.employeeModel);
+                if(res.MisaCode === config.sucess){
+                    this.$emit("handleCloseAfterSave", res, this.employeeModel.Employee.EmployeeCode);
+                    this.employeeModel = {};
+                }
+                else{
+                    this.$emit("handleCloseAfterSave", res, this.employeeModel.Employee.EmployeeCode);
+                }
+            }
         }
+    },
+
+    async created() {
+        this.employeeDepartmentList = await employeeDepartmentService.getEmployeeDepartment();
     },
 }
 </script>

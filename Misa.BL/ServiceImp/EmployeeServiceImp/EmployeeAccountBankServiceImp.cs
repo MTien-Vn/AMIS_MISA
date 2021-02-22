@@ -16,7 +16,7 @@ namespace Misa.BL.ServiceImp.EmployeeServiceImp
         {
             employeeAccountBankRepository = _employeeAccountBankRepository;
         }
-
+        #region delete employeeBank
         public ServiceResult DeleteEmployeeAccountBank(string id)
         {
             List<string> fieldNames = new List<string>();
@@ -25,5 +25,19 @@ namespace Misa.BL.ServiceImp.EmployeeServiceImp
             values.Add(id);
             return base.DeleteT(fieldNames, values);
         }
+        #endregion
+
+        #region filter employeeBank
+
+        public IEnumerable<EmployeeAccountBank> GetAccountBanksByEmployeeId(string employeeId)
+        {
+            List<string> fieldNames = new List<string>();
+            List<string> values = new List<string>();
+            fieldNames.Add("EmployeeId");
+            values.Add(employeeId);
+            return employeeAccountBankRepository.GetData(0, 0, fieldNames, values);
+        }
+
+        #endregion
     }
 }

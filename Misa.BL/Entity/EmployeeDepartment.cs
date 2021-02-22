@@ -12,7 +12,7 @@ namespace Misa.BL.Entity
         /// <summary>
         /// id của đơn vị nhân viên
         /// </summary>
-        public Guid EmployeeDepartmentId { get; set; }
+        public int EmployeeDepartmentId { get; set; }
 
         /// <summary>
         /// tên đơn vị

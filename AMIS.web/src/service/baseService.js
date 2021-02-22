@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {*} d 
+ * định dạng thời gian theo dd/mm/yyyy
+ */
 function handleDate(d) {
     var date = new Date(d);
     var year = ("0000" + date.getFullYear()).slice(-4);
@@ -6,6 +11,11 @@ function handleDate(d) {
     return day + "/" + month + "/" + year;
 }
 
+/**
+ * 
+ * @param {*} money 
+ * định dạng tiền VND
+ */
 function handleMoney(money) {
     if (money) {
         var num = parseFloat(money);
@@ -14,6 +24,11 @@ function handleMoney(money) {
     return "";
 }
 
+/**
+ * 
+ * @param {*} genderCode 
+ * định dạng giới tính 
+ */
 function handleGender(genderCode) {
     switch (genderCode) {
         case 0:
@@ -25,6 +40,11 @@ function handleGender(genderCode) {
     }
 }
 
+/**
+ * 
+ * @param {*} state 
+ * định dạng trạng thái của tài khoản ngân hàng
+ */
 function handleState(state) {
     switch (state) {
         case 0:

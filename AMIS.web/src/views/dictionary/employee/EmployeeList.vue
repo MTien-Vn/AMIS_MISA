@@ -11,7 +11,14 @@
             <BaseButton text="Thêm" />
           </div>
         </div>
-        <EmployeeForm :isHide="isHideForm" @handleClose="handleCloseForm" />
+        <EmployeeForm :isHide="isHideForm" @handleClose="handleCloseForm" 
+                                           @handleCloseAfterSave="handleCloseAfterSave"
+                                           @handleCancel="handleCancel"/>
+        <BasePopUpNotice :isActive="isHidePopUpNotice" 
+                         textConfirm="Xác nhận"
+                         :textContent="contentPopUp"
+                        @closePopUpNotice="handleClosePopUpNotice"
+                        @confirmPopUpNotice="handleClosePopUpNotice"/>
       </div>
     </div>
     <div class="content-body">
@@ -88,11 +95,14 @@ import EmployeeService from "../../../service/employeeService/employeeService";
 import BaseService from "../../../service/baseService";
 import config from "../../../config.json";
 import EmployeeForm from "./EmployeeForm.vue";
+import BasePopUpNotice from '../../../components/BaseComponent/BasePopUpNotice.vue';
+import employeeService from '../../../service/employeeService/employeeService';
 export default {
   components: {
     BaseButton,
     BasePaging,
     EmployeeForm,
+    BasePopUpNotice,
   },
 
   name: "EmployeeList",
@@ -100,6 +110,8 @@ export default {
   data() {
     return {
       isHideForm: true,
+      isHidePopUpNotice: true,
+      isHidePopUpWarn: true,
       employeeList: [],
       page: 1,
       limmit: 10,
@@ -108,6 +120,7 @@ export default {
       misaCode: config.default,
       keyWord: "",
       isHideEditContent: -1,
+      contentPopUp: '',
     };
   },
 
@@ -124,6 +137,10 @@ export default {
       this.isHideForm = res;
     },
 
+    handleCancel(res){
+      this.isHideForm = res;
+    },
+    
     handleEdit(index) {
       if (this.isHideEditContent == -1) {
         this.isHideEditContent = index;
@@ -131,31 +148,19 @@ export default {
         this.isHideEditContent = -1;
       }
     },
-    // handleClosePopUp(res) {
-    //   if (this.misaCode != config.sucess) {
-    //     this.isHidePopUp = res;
-    //     this.handleShowForm();
-    //   } else {
-    //     this.isHidePopUp = res;
-    //   }
-    // },
 
-    // handleConfirm(res) {
-    //   if (this.misaCode != config.sucess) {
-    //     this.isHidePopUp = res;
-    //     this.handleShowForm();
-    //   } else {
-    //     this.isHidePopUp = res;
-    //   }
-    // },
+    handleClosePopUpNotice(){
+      this.isHidePopUpNotice = true;
+    },
 
-    // handleCloseForm(res) {
-    //   if (this.misaCode == config.sucess || this.misaCode == config.default) {
-    //     this.employee = employeeService.reSetInputFiled();
-    //   }
-    //   this.isHideForm = res;
-    //   this.handleFilter(this.employeePositionId, this.employeeDepartmentId);
-    // },
+    async handleCloseAfterSave(res, employeeCode) {
+      this.isHideForm = true;
+      if(res.MisaCode === config.sucess){
+        this.isHidePopUpNotice = false;
+        this.contentPopUp = res.Messenger.toString();
+        this.employeeList = await employeeService.getEmployeeByEmployeeCode(employeeCode);
+      }
+    },
 
     // handlePopUpContent(content, isActive, misaCode) {
     //   this.popUpContent = content;

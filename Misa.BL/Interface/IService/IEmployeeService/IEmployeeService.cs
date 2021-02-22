@@ -1,4 +1,5 @@
 ﻿using Misa.BL.Entity;
+using Misa.BL.Model;
 using Misa.BL.Service;
 using System.Collections.Generic;
 
@@ -14,7 +15,7 @@ namespace Misa.BL.Interface.IService.IEmployeeService
         /// <param name="employeeAccountBank"></param>
         /// createdBy: ManhTien(22/2/2021)
         /// <returns>đối tượng ServiceResult</returns>
-        ServiceResult SaveEmployee(Employee employee, List<EmployeeAccountBank> employeeAccountBank);
+        ServiceResult SaveEmployee(EmployeeModel employeeModel);
         #endregion
         #region get employee
         /// <summary>

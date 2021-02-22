@@ -40,11 +40,13 @@ namespace MISA_AMIS
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepositoryImp<>));
             services.AddScoped<IEmployeeRepository, EmployeeRepositoryImp>();
             services.AddScoped<IEmployeeAccountBankRepository, EmployeeAccountBankRepositoryImp>();
+            services.AddScoped<IEmployeeDepartmentRepository, EmployeeDepartmentRepositoryImp>();
 
             // add scope service
             services.AddScoped(typeof(IBaseService<>), typeof(BaseServiceImp<>));
             services.AddScoped<IEmployeeService, EmployeeServiceImp>();
             services.AddScoped<IEmployeeAccountBankService, EmployeeAccountBankServiceImp>();
+            services.AddScoped<IEmployeeDepartmentService, EmployeeDepartmentServiceImp>();
 
             services.AddCors();
 

@@ -20,3 +20,14 @@ D:\Misa_AMIS\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.AssemblyInfo.cs
 D:\Misa_AMIS\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.csproj.CoreCompileInputs.cache
 D:\Misa_AMIS\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.dll
 D:\Misa_AMIS\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.pdb
+E:\Misa\AMIS\Misa.BL\bin\Debug\netcoreapp3.1\Misa.BL.deps.json
+E:\Misa\AMIS\Misa.BL\bin\Debug\netcoreapp3.1\Misa.BL.dll
+E:\Misa\AMIS\Misa.BL\bin\Debug\netcoreapp3.1\Misa.BL.pdb
+E:\Misa\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.csprojAssemblyReference.cache
+E:\Misa\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.Properties.Resources.resources
+E:\Misa\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.csproj.GenerateResource.cache
+E:\Misa\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.AssemblyInfoInputs.cache
+E:\Misa\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.AssemblyInfo.cs
+E:\Misa\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.csproj.CoreCompileInputs.cache
+E:\Misa\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.dll
+E:\Misa\AMIS\Misa.BL\obj\Debug\netcoreapp3.1\Misa.BL.pdb

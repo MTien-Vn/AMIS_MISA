@@ -21,9 +21,20 @@ namespace MISA_AMIS.Controllers
         }
         // GET: api/<BaseController>
         [HttpGet("{page}/{limmit}")]
-        public IEnumerable<T> Get(long page, long limmit)
+        public IEnumerable<T> Get(long page = 1, long limmit = 10)
         {
             return baseService.GetEntity(page, limmit);
+        }
+
+        [HttpGet]
+        public IEnumerable<T> GetAll(long page = 1, long limmit = 10)
+        {
+            return baseService.GetEntity(page, limmit);
+        }
+        [HttpGet("{id}")]
+        public T GetEntityById(string id)
+        {
+            return baseService.GetEntityById(id);
         }
 
         [HttpGet("numberEntity")]

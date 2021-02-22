@@ -4,6 +4,7 @@ using Misa.BL.Interface.IRepository;
 using Misa.BL.Interface.IRepository.IEmployeeRepository;
 using Misa.BL.Interface.IService.IEmployeeService;
 using Misa.BL.IService.IEmployeeService;
+using Misa.BL.Model;
 using Misa.BL.Properties;
 using Misa.BL.Service;
 using Misa.BL.ValidateData;
@@ -95,9 +96,12 @@ namespace Misa.BL.ServiceImp.EmployeeServiceImp
 
         #region save employee
 
-        public ServiceResult SaveEmployee(Employee employee, List<EmployeeAccountBank> employeeAccountBank)
+        public ServiceResult SaveEmployee(EmployeeModel employeeModel)
         {
-            if(employee.EmployeeId != null)
+            var employee = employeeModel.Employee;
+            var employeeAccountBank = employeeModel.EmployeeAccountBanks;
+
+            if (employee.EmployeeId != null)
             {
                 
                 employee.EmployeeId = new Guid();

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Misa.BL.Entity;
 using Misa.BL.Interface.IService;
 using Misa.BL.Interface.IService.IEmployeeService;
+using Misa.BL.Model;
 using Misa.BL.Service;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,12 @@ namespace MISA_AMIS.Controllers
             return employeeService.SearchEmployeeByKey(key, page, limmit);
         }
 
+        [HttpGet("getEmployeeByEmployeeCode/{employeeCode}")]
+        public IEnumerable<Employee> GetEmployeeByCode(string employeeCode)
+        {
+            return employeeService.GetEmployeeByEmployeeCode(employeeCode);
+        }
+
         [HttpGet("numberEmployee/{key}")]
         public long NumberEmployee(string key)
         {
@@ -40,15 +47,15 @@ namespace MISA_AMIS.Controllers
         }
 
         [HttpPost("saveEmployee")]
-        public ServiceResult SaveEmpoyee([FromBody] Employee employee, [FromBody] List<EmployeeAccountBank> employeeAccountBanks)
+        public ServiceResult SaveEmpoyee([FromBody] EmployeeModel employeeModel)
         {
-            return employeeService.SaveEmployee(employee, employeeAccountBanks);
+            return employeeService.SaveEmployee(employeeModel);
         }
 
         [HttpPut("updateEmployee")]
-        public ServiceResult UpdateEmployee([FromBody] Employee employee, [FromBody] List<EmployeeAccountBank> employeeAccountBanks)
+        public ServiceResult UpdateEmployee([FromBody] EmployeeModel employeeModel)
         {
-            return employeeService.SaveEmployee(employee, employeeAccountBanks);
+            return employeeService.SaveEmployee(employeeModel);
         }
 
         [HttpDelete("{code}")]

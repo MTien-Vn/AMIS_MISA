@@ -20,6 +20,12 @@ namespace MISA_AMIS.Controllers
             employeeAccountBankService = _employeeAccountBankService;
         }
 
+        [HttpGet("list/{employeeId}")]
+        public IEnumerable<EmployeeAccountBank> GetEmployeeAccountBankList(string employeeId)
+        {
+            return employeeAccountBankService.GetAccountBanksByEmployeeId(employeeId);
+        }
+
         [HttpDelete("{bankAccountId}")]
         public ServiceResult DeleteAccountBank(string bankAccountId)
         {

@@ -3,22 +3,15 @@
         <div :class="{isHide:isActive}">
             <div class="pop-up-modal"></div>
             <div class="pup-up-container">
-                <div class="pop-up-header">
-                    <div class="pop-up-header-text">{{textHeader}}</div>
-                </div>
                 <div class="pop-up-content">
-                    <div>{{textContent}}</div>
+                    <div class="icon"></div>
+                    <div class="content-text">{{textContent}}</div>
                 </div>
                 <div class="pop-up-footer">
                     <div v-on:click="cancel">
                         <BaseCancelButton  
-                            :text="textCancel" 
+                            :text="textConfirm" 
                             class="re-background-color"/>
-                    </div>
-                    
-                    <div v-on:click="confirm">
-                        <BaseCancelButton 
-                            :text="textConfirm" />
                     </div>
                     
                 </div>
@@ -30,23 +23,22 @@
 <script>
 import BaseCancelButton from '../BaseComponent/BaseCancelButton';
 export default {
-    name: 'BasePopUp',
+    name: 'BasePopUpWarn',
     components: {
         BaseCancelButton
     },
     props: {
         textHeader: String,
         textContent: String,
-        textCancel: String,
         textConfirm: String,
         isActive: Boolean
     },
     methods: {
         cancel(){
-            this.$emit("closePopUp", true);
+            this.$emit("closePopUpNotice", true);
         },
         confirm(){
-            this.$emit('confirmPopUp', true);
+            this.$emit('confirmPopUpNotice', true);
         }
     }
 
@@ -69,7 +61,7 @@ export default {
     z-index: 2;
 }
 .pup-up-container{
-    width: 300px;
+    width: 400px;
     height: auto;
     border: solid 1px rgb(red, green, blue);
     border-radius: 4px;
@@ -79,7 +71,7 @@ export default {
     background-color: #E9EBEE;
     z-index: 3;
     margin-top: auto;
-    margin-left: -150px;
+    margin-left: -200px;
 }
 .pop-up-header{
     width: 100%;
@@ -96,19 +88,30 @@ export default {
 
 .pop-up-content{
     font-size: 13px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 16px;
+    border-bottom: 1px solid #BBBBBB;
+    display: inline-block;
+}
+
+.icon{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -672px -462px;
+	width: 36px;
+	height: 36px;
+}
+
+.content-text{
+    text-align: center;
 }
 
 .pop-up-footer{
     height: 60px;
     display: flex;
     align-items: flex-end;
-    padding: 16px 10px 10px;
+    padding: 16px;
 }
 
 .re-background-color{
-    background-color: #BBBBBB;
+    background-color: #ffffff;
 }
 
 .re-background-color:hover{

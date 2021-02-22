@@ -7,11 +7,10 @@ using System.Text;
 
 namespace Misa.DL.RepositoryImp.EmployeeRepositoryImp
 {
-    public class EmployeeAccountBankRepositoryImp : BaseRepositoryImp<EmployeeAccountBank>, IEmployeeAccountBankRepository
+    public class EmployeeDepartmentRepositoryImp : BaseRepositoryImp<EmployeeDepartment>, IEmployeeDepartmentRepository
     {
-        public EmployeeAccountBankRepositoryImp(IDBConnector iDBConnector) : base(iDBConnector)
+        public EmployeeDepartmentRepositoryImp(IDBConnector iDBConnector) : base(iDBConnector)
         {
         }
-
     }
 }
