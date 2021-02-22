@@ -1,0 +1,16 @@
+input,
+select {
+    padding: 10px 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-search-icon {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -89px -33px;
+    width: 22px;
+    height: 22px;
+}

@@ -1,0 +1,212 @@
+.navbar {
+    position: relative;
+    float: left;
+    width: 180px;
+    height: 100vh;
+    background-color: #454545;
+    border-right: 1px solid #bbbbbb;
+    z-index: 1;
+}
+
+.navbar .logo-site {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo-box {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.navbar .logo-box .toggle-icon {
+    width: 16px;
+    height: 16px;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -428px -92px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.navbar .logo-box .amis-logo {
+    height: 30px;
+    width: 100%;
+    background-image: url('../../assets/img/Logo_Module_TiengViet_White.66947422.svg');
+    background-position: 0 center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.navbar .navbar-content {
+    width: 100%;
+    color: #ffffff;
+}
+
+.navbar .navbar-content .navbar-item {
+    height: 44px;
+    display: flex;
+    line-height: 44px;
+    padding-left: 24px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.navbar .navbar-content .navbar-item:hover {
+    background-color: #BBBBBB;
+}
+
+.navbar .navbar-content .navbar-item:focus {
+    background-color: #e5e5e5;
+}
+
+.navbar .navbar-content .navbar-item:active {
+    background-color: #E9EBEE;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-item .navbar-item-icon {
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.nav-item-dashboard {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -33px -1630px;
+    width: 18px;
+    height: 20px;
+}
+
+
+/*tiền mặt*/
+
+.nav-item-currency {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -78px -1631px;
+    width: 14px;
+    height: 18px;
+}
+
+
+/*tiền gửi*/
+
+.nav-item-deposits {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -121px -1633px;
+    width: 16px;
+    height: 16px;
+}
+
+
+/*bán hàng*/
+
+.nav-item-sell {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -165px -1632px;
+    width: 16px;
+    height: 18px;
+}
+
+
+/*mua hàng*/
+
+.nav-item-shopping {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -206px -1631px;
+    width: 20px;
+    height: 18px;
+}
+
+
+/*quản lý đơn*/
+
+.nav-item-order {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -254px -1632px;
+    width: 14px;
+    height: 17px;
+}
+
+
+/* kho */
+
+.nav-item-repository {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -294px -1632px;
+    width: 18px;
+    height: 17px;
+}
+
+
+/* công cụ */
+
+.nav-item-tool {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -339px -1633px;
+    width: 18px;
+    height: 17px;
+}
+
+
+/* tài sản */
+
+.nav-item-assets {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -382px -1632px;
+    width: 17px;
+    height: 18px;
+}
+
+
+/* thuế */
+
+.nav-item-tax {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -427px -1634px;
+    width: 16px;
+    height: 16px;
+}
+
+
+/*giá thành */
+
+.nav-item-cost {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -471px -1633px;
+    width: 17px;
+    height: 17px;
+}
+
+
+/*tổng hợp */
+
+.nav-item-common {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -514px -1632px;
+    width: 16px;
+    height: 18px;
+}
+
+
+/*ngân sách*/
+
+.nav-item-budget {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -382px -1664px;
+    width: 16px;
+    height: 16px;
+}
+
+
+/*báo cáo*/
+
+.nav-item-report {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -552px -1636px;
+    width: 14px;
+    height: 13px;
+}
+
+
+/*phân tích tài chính*/
+
+.nav-item-analysis {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -207px -1667px;
+    width: 17px;
+    height: 14px;
+}

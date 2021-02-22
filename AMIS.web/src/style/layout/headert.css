@@ -1,0 +1,108 @@
+﻿.header {
+    height: 50px;
+    width: calc(100% - 181px);
+    border-bottom: 1px solid #bbbbbb;
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.left-header .department {
+    padding: 16px;
+    font-size: 16px;
+}
+
+.left-header .department select {
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.left-header .department option {
+    cursor: pointer;
+}
+
+.right-header {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header-search {
+    width: 220px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+    margin-right: 8px;
+}
+
+.header-search input {
+    outline: none;
+    border: none;
+    height: auto;
+    height: 24px;
+}
+
+.right-header .header-option {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -568px -30px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.right-header .header-setting {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -676px -30px;
+    width: 23px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.right-header .header-mess {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -899px -30px;
+    width: 24px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+.right-header .header-help {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -732px -31px;
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+}
+
+.right-header .header-notice {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -788px -30px;
+    width: 22px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+.right-header .account {
+    width: 240px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.right-header .account .account-icon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -352px -894px;
+}
+
+.account select {
+    border: none;
+    cursor: pointer;
+}

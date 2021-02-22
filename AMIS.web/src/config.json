@@ -1,0 +1,8 @@
+{
+    "baseUrl": "http://localhost:51024/api/",
+    "isValid": 100,
+    "inValid": 300,
+    "sucess": 200,
+    "false": 600,
+    "default": 0
+}

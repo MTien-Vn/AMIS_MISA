@@ -1,0 +1,40 @@
+.grid {
+    width: 100%;
+    height: 450px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+table {
+    border-collapse: collapse;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%;
+}
+
+thead {
+    background-color: #E9EBEE;
+}
+
+th,
+td {
+    height: 40px;
+    text-align: left;
+    border-bottom: 1px solid #bbbbbb;
+    padding-left: 10px;
+}
+
+.cell {
+    height: 40px;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-right {
+    text-align: right;
+}

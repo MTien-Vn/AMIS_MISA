@@ -1,0 +1,15 @@
+﻿.btn-close {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -147px -147px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    background-color: #F65454;
+}
+
+.btn-close {
+    position: absolute;
+    right: 16px;
+}
