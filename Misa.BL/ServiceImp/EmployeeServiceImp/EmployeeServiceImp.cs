@@ -101,7 +101,7 @@ namespace Misa.BL.ServiceImp.EmployeeServiceImp
             var employee = employeeModel.Employee;
             var employeeAccountBank = employeeModel.EmployeeAccountBanks;
 
-            if (employee.EmployeeId != null)
+            if (employee.EmployeeId.Equals(Guid.Empty))
             {
                 
                 employee.EmployeeId = new Guid();

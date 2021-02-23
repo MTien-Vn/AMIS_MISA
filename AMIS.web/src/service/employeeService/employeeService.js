@@ -63,7 +63,7 @@ const numberEmployeeByKey = async(key) => {
 }
 
 const saveEmployee = async(employeeModel) => {
-    if (employeeModel.Employee.EmployeeId === null) {
+    if (employeeModel.Employee.EmployeeId === '') {
         var res = await axios.post(baseUrl + 'Employee/saveEmployee', employeeModel);
         return res.data;
     } else {

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <TheContent/>
     <TheNavar/>
     <TheHeader/>
+    <TheContent/>
   </div>
 </template>
 

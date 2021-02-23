@@ -186,7 +186,9 @@ export default {
             tabSelected: 'contactContent',
             employeeModel: {
                 EmployeeAccountBanks: [],
-                Employee: {},
+                Employee: {
+                    EmployeeId: '',
+                },
             },
             employeeDepartmentList: [],
             accountBank: {
@@ -208,7 +210,12 @@ export default {
 
         handleCancle(){
             this.$emit('handleCancel', true);
-            this.employeeModel = {};
+            this.employeeModel = {
+                EmployeeAccountBanks: [],
+                Employee: {
+                    EmployeeId: '',
+                },
+            };
         },
 
         handleChangeTab(tab){
@@ -246,7 +253,12 @@ export default {
                 var res = await employeeService.saveEmployee(this.employeeModel);
                 if(res.MisaCode === config.sucess){
                     this.$emit("handleCloseAfterSave", res, this.employeeModel.Employee.EmployeeCode);
-                    this.employeeModel = {};
+                    this.employeeModel = {
+                        EmployeeAccountBanks: [],
+                        Employee: {
+                            EmployeeId: '',
+                        },
+                    };
                 }
                 else{
                     this.$emit("handleCloseAfterSave", res, this.employeeModel.Employee.EmployeeCode);
