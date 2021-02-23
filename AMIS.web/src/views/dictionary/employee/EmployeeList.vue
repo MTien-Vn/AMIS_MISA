@@ -11,14 +11,25 @@
             <BaseButton text="Thêm" />
           </div>
         </div>
-        <EmployeeForm :isHide="isHideForm" @handleClose="handleCloseForm" 
-                                           @handleCloseAfterSave="handleCloseAfterSave"
-                                           @handleCancel="handleCancel"/>
+        <EmployeeForm :isHide="isHideForm" 
+                       :employeeIdPro="employeeId"
+                      @handleClose="handleCloseForm" 
+                      @handleCloseAfterSave="handleCloseAfterSave"
+                      @handleCancel="handleCancel"
+                      ref="EmployeeForm"              
+        />
+
         <BasePopUpNotice :isActive="isHidePopUpNotice" 
                          textConfirm="Xác nhận"
                          :textContent="contentPopUp"
-                        @closePopUpNotice="handleClosePopUpNotice"
                         @confirmPopUpNotice="handleClosePopUpNotice"/>
+
+        <BasePopUpWarn  :isActive="isHidePopUpWarn"
+                         textCancel="Không"
+                         textConfirm="Có"
+                         :textContent="contentPopUp"
+                         @closePopUp="handleClosePopUpWarn"
+                         @confirmPopUp="handleConfirmPopUpWarn"/>
       </div>
     </div>
     <div class="content-body">
@@ -57,17 +68,20 @@
               <td>{{ employee.BranchName }}</td>
               <td>{{ handleStateBank(employee.StateAccount) }}</td>
               <td>
-                <div class="function" @click="handleEdit(index)">
-                  <div class="function-text">Sửa</div>
-                  <div class="function-box">
-                    <div class="function-icon"></div>
-                  </div>
-                  <div class="edit-contnet" v-if="isHideEditContent === index">
-                    <div class="edit-copy">Nhân bản</div>
-                    <div class="edit-delete">Xóa</div>
-                    <div class="edit-stop-using">Ngừng sử dụng</div>
-                  </div>
+                <div class="function-container">
+                  <div class="function-edit" @click="handleEdit(employee.EmployeeId)">Sửa</div>
+                  <div class="function-other" @click="handleOther(index)">
+                    <div class="function-box">
+                      <div class="function-icon"></div>
+                    </div>
+                    <div class="edit-contnet" v-if="isHideEditContent === index">
+                      <div class="edit-copy">Nhân bản</div>
+                      <div class="edit-delete" @click="handleDeleteEmloyee(employee.EmployeeId)">Xóa</div>
+                      <div class="edit-stop-using" @click="handleStateAccountBank(employee)">Ngừng sử dụng</div>
+                    </div>
                 </div>
+                </div>
+                
               </td>
             </tr>
           </tbody>
@@ -97,12 +111,14 @@ import config from "../../../config.json";
 import EmployeeForm from "./EmployeeForm.vue";
 import BasePopUpNotice from '../../../components/BaseComponent/BasePopUpNotice.vue';
 import employeeService from '../../../service/employeeService/employeeService';
+import BasePopUpWarn from '../../../components/BaseComponent/BasePopUpWarn.vue';
 export default {
   components: {
     BaseButton,
     BasePaging,
     EmployeeForm,
     BasePopUpNotice,
+    BasePopUpWarn,
   },
 
   name: "EmployeeList",
@@ -121,6 +137,7 @@ export default {
       keyWord: "",
       isHideEditContent: -1,
       contentPopUp: '',
+      employeeId: '',
     };
   },
 
@@ -131,6 +148,7 @@ export default {
 
     handleShowForm() {
       this.isHideForm = false;
+      // this.$refs.EmployeeForm.isActive1 = true;
     },
 
     handleCloseForm(res) {
@@ -141,7 +159,7 @@ export default {
       this.isHideForm = res;
     },
     
-    handleEdit(index) {
+    handleOther(index) {
       if (this.isHideEditContent == -1) {
         this.isHideEditContent = index;
       } else {
@@ -162,15 +180,24 @@ export default {
       }
     },
 
+    handleEdit(employeeId){
+      this.isHideForm = false;
+      this.employeeId = employeeId;
+    },
+
+    handleDeleteEmloyee(employeeId){
+      console.log(employeeId);
+    },
+
+    handleStateAccountBank(employee){
+      console.log(employee);
+    },
+
+  
     // handlePopUpContent(content, isActive, misaCode) {
     //   this.popUpContent = content;
     //   this.isHidePopUp = isActive;
     //   this.misaCode = misaCode;
-    // },
-
-    // async updateEmployee(employeeId) {
-    //   this.isHideForm = false;
-    //   this.employee = await employeeService.getEmployeeById(employeeId);
     // },
 
     async getEmployee() {
@@ -232,6 +259,16 @@ export default {
     //     this.handleFilter(this.employeePositionId, this.employeeDepartmentId);
     //   }
     // },
+
+    
+
+    handleClosePopUpWarn(){
+      console.log("handleClosePopUpWarn");
+    },
+
+    handleConfirmPopUpWarn(){
+          console.log("handleConfirmPopUpWarn");
+    },
   },
 
   async created() {
@@ -246,7 +283,7 @@ export default {
 </script>
 
 <style scoped>
-.function {
+.function-container{
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -254,7 +291,7 @@ export default {
   padding-left: 16px;
 }
 
-.function-text {
+.function-edit {
   color: #0075ff;
   margin: 4px;
 }

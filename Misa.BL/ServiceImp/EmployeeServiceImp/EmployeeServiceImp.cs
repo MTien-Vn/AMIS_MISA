@@ -101,10 +101,9 @@ namespace Misa.BL.ServiceImp.EmployeeServiceImp
             var employee = employeeModel.Employee;
             var employeeAccountBank = employeeModel.EmployeeAccountBanks;
 
-            if (employee.EmployeeId.Equals(Guid.Empty))
+            if (employee.EmployeeId.Equals(Guid.Empty) || employee.EmployeeId == null)
             {
-                
-                employee.EmployeeId = new Guid();
+                employee.EmployeeId = Guid.NewGuid();
                 var serResultEmployee = this.InsertT(employee);
                 if(serResultEmployee.MisaCode == MisaEmun.Scuccess)
                 {

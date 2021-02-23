@@ -1,25 +1,26 @@
 <template>
         <div class="paging-bar">
-            <div class="paging-option-infor">Hiển thị {{fromIndex}}-{{toIndex}} / {{totalObject}} {{objectName}}</div>
-            <div class="paging-option">
-                <div class="btn-first-page" id="first-page" v-on:click="changePage(1)"></div>
-                <div class="btn-prev-page" id="prev-page" v-on:click="changePage(pageNumber - 1)"></div>
-                <div class="page-list">
-                    <div class="page-number" id="page-number-1" :class="{isActive: isActive1}"  v-on:click="changePage(1)">1</div>
-                    <div class="page-number" id="page-number-2" :class="{isActive: isActive2}"  v-on:click="changePage(2)" >2</div>
-                    <div class="page-number" id="page-number-3" :class="{isActive: isActive3}"  v-on:click="changePage(3)" >3</div>
-                    <div class="page-number" id="page-number-4" :class="{isActive: isActive4}"  v-on:click="changePage(4)" >4</div>
+            <div class="paging-total-recored">Tổng số: {{totalObject}} bản ghi</div>
+            <div class="paging-infor">
+                <div class="paging-option-record">
+                    <select v-model="newLimmit" @change="changeLimit">
+                        <option value=5 >5 {{objectName}} / trang</option>
+                        <option value=10 >10 {{objectName}} / trang</option>
+                        <option value=15 >15 {{objectName}} / trang</option>
+                    </select>
                 </div>
-                <div class="btn-next-page" id="next-page" v-on:click="changePage(pageNumber + 1)"></div>
-                <div class="btn-last-page" id="last-page" v-on:click="changePage(total_page)"></div>
+                <div class="paging-option">
+                    <div class="btn-prev-page" id="prev-page" v-on:click="changePage(pageNumber - 1)">Trước</div>
+                    <div class="page-list">
+                        <div class="page-number" id="page-number-1" :class="{isActive: isActive1}"  v-on:click="changePage(1)">1</div>
+                        <div class="page-number" id="page-number-2" :class="{isActive: isActive2}"  v-on:click="changePage(2)" >2</div>
+                        <div class="page-number" id="page-number-3" :class="{isActive: isActive3}"  v-on:click="changePage(3)" >3</div>
+                        <div class="page-number" id="page-number-4" :class="{isActive: isActive4}"  v-on:click="changePage(4)" >4</div>
+                    </div>
+                    <div class="btn-next-page" id="next-page" v-on:click="changePage(pageNumber + 1)">Sau</div>
+                </div>
             </div>
-            <div class="paging-option-record">
-                <select class="page-option" id="option-page" v-model="newLimmit" @change="changeLimit">
-                    <option value=5 >5 {{objectName}} / trang</option>
-                    <option value=10 >10 {{objectName}} / trang</option>
-                    <option value=15 >15 {{objectName}} / trang</option>
-                </select>
-            </div>
+            
         </div>
 </template>
 
@@ -127,14 +128,30 @@ export default {
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: 0 16px;
     bottom: 0;
 }
 
-.paging-bar .paging-option-infor {
+.paging-bar .paging-total-recored {
     position: relative;
     width: 20%;
+    height: 40px;
+    padding: 16px 0 16px 0;
+    display: flex;
+    align-items: center;
+}
+
+.paging-infor{
+    position: absolute;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.paging-bar .paging-option-record {
+    width: auto;
     height: 40px;
     padding: 16px;
     display: flex;
@@ -143,12 +160,12 @@ export default {
 
 .paging-bar .paging-option {
     position: relative;
-    width: 60%;
+    width: 20%;
     height: 40px;
-    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 48px;
 }
 
 .paging-option .page-list {
@@ -156,25 +173,9 @@ export default {
     align-items: center;
 }
 
-.paging-bar .paging-option-record {
-    position: relative;
-    float: right;
-    width: 20%;
-    height: 40px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-}
-
-.page-option {
-    position: absolute;
-    right: 0;
-}
-
 .page-number {
     width: 20px;
     height: 20px;
-    border-radius: 50px;
     border: 1px solid #808080;
     cursor: pointer;
     text-align: center;
@@ -182,42 +183,22 @@ export default {
 }
 
     .page-number:hover {
-        background-color: #019160
+        background-color: #0075ff
     }
 
-.btn-first-page {
-    height: 20px;
-    width: 20px;
-    background-image: url('../../assets/img/btn-firstpage.svg');
-    background-position: center;
-    background-repeat: no-repeat;
+.btn-prev-page, .btn-next-page{
     cursor: pointer;
 }
 
-.btn-prev-page {
-    height: 20px;
-    width: 20px;
-    background-image: url('../../assets/img/btn-prev-page.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
+.btn-prev-page:hover{
+    background-color: #0075ff
 }
 
-.btn-next-page {
-    height: 20px;
-    width: 20px;
-    background-image: url('../../assets/img/btn-next-page.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
+.btn-next-page:hover{
+    background-color: #0075ff
 }
 
-.btn-last-page {
-    height: 20px;
-    width: 20px;
-    background-image: url('../../assets/img/btn-lastpage.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
+.btn-prev-page{
+    padding-right: 8px;
 }
 </style>

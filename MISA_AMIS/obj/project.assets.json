@@ -1757,19 +1757,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ManhTien\\.nuget\\packages\\": {}
+    "C:\\Users\\nmtien\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Misa\\AMIS\\MISA_AMIS\\MISA_AMIS.csproj",
+      "projectUniqueName": "D:\\AMIS_MISA\\AMIS_MISA\\MISA_AMIS\\MISA_AMIS.csproj",
       "projectName": "MISA_AMIS",
-      "projectPath": "E:\\Misa\\AMIS\\MISA_AMIS\\MISA_AMIS.csproj",
-      "packagesPath": "C:\\Users\\ManhTien\\.nuget\\packages\\",
-      "outputPath": "E:\\Misa\\AMIS\\MISA_AMIS\\obj\\",
+      "projectPath": "D:\\AMIS_MISA\\AMIS_MISA\\MISA_AMIS\\MISA_AMIS.csproj",
+      "packagesPath": "C:\\Users\\nmtien\\.nuget\\packages\\",
+      "outputPath": "D:\\AMIS_MISA\\AMIS_MISA\\MISA_AMIS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ManhTien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nmtien\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1783,11 +1783,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\Misa\\AMIS\\Misa.BL\\Misa.BL.csproj": {
-              "projectPath": "E:\\Misa\\AMIS\\Misa.BL\\Misa.BL.csproj"
+            "D:\\AMIS_MISA\\AMIS_MISA\\Misa.BL\\Misa.BL.csproj": {
+              "projectPath": "D:\\AMIS_MISA\\AMIS_MISA\\Misa.BL\\Misa.BL.csproj"
             },
-            "E:\\Misa\\AMIS\\Misa.DL\\Misa.DL.csproj": {
-              "projectPath": "E:\\Misa\\AMIS\\Misa.DL\\Misa.DL.csproj"
+            "D:\\AMIS_MISA\\AMIS_MISA\\Misa.DL\\Misa.DL.csproj": {
+              "projectPath": "D:\\AMIS_MISA\\AMIS_MISA\\Misa.DL\\Misa.DL.csproj"
             }
           }
         }
@@ -1843,7 +1843,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

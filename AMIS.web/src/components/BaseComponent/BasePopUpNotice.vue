@@ -7,8 +7,9 @@
                     <div class="icon"></div>
                     <div class="content-text">{{textContent}}</div>
                 </div>
+                <div style="padding: 0 16px 0 16px"><hr></div>
                 <div class="pop-up-footer">
-                    <div v-on:click="cancel">
+                    <div v-on:click="confirm">
                         <BaseCancelButton  
                             :text="textConfirm" 
                             class="re-background-color"/>
@@ -23,7 +24,7 @@
 <script>
 import BaseCancelButton from '../BaseComponent/BaseCancelButton';
 export default {
-    name: 'BasePopUpWarn',
+    name: 'BasePopUpNotice',
     components: {
         BaseCancelButton
     },
@@ -34,9 +35,6 @@ export default {
         isActive: Boolean
     },
     methods: {
-        cancel(){
-            this.$emit("closePopUpNotice", true);
-        },
         confirm(){
             this.$emit('confirmPopUpNotice', true);
         }
@@ -68,9 +66,9 @@ export default {
     position: fixed;
     left: 50%;
     right: 50%;
-    background-color: #E9EBEE;
+    background-color: #ffffff;
     z-index: 3;
-    margin-top: auto;
+    margin: auto;
     margin-left: -200px;
 }
 .pop-up-header{
@@ -89,7 +87,6 @@ export default {
 .pop-up-content{
     font-size: 13px;
     padding: 16px;
-    border-bottom: 1px solid #BBBBBB;
     display: inline-block;
 }
 

@@ -2,6 +2,7 @@
  * 
  * @param {*} d 
  * định dạng thời gian theo dd/mm/yyyy
+ * người tạo: Manh Tien (22/2/2021)
  */
 function handleDate(d) {
     var date = new Date(d);
@@ -15,6 +16,7 @@ function handleDate(d) {
  * 
  * @param {*} money 
  * định dạng tiền VND
+ * người tạo: Manh Tien (22/2/2021)
  */
 function handleMoney(money) {
     if (money) {
@@ -28,6 +30,7 @@ function handleMoney(money) {
  * 
  * @param {*} genderCode 
  * định dạng giới tính 
+ * người tạo: Manh Tien (22/2/2021)
  */
 function handleGender(genderCode) {
     switch (genderCode) {
@@ -44,6 +47,7 @@ function handleGender(genderCode) {
  * 
  * @param {*} state 
  * định dạng trạng thái của tài khoản ngân hàng
+ * người tạo: Manh Tien (22/2/2021)
  */
 function handleState(state) {
     switch (state) {

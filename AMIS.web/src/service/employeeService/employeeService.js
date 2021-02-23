@@ -29,12 +29,17 @@ const validate = (employee) => {
     if (!employee.EmployeeDepartmentId) {
         checks[2] = true;
     }
-    if (!employee.Email) {
+    if (employee.Email) {
         if (!isEmail(employee.Email)) {
             checks[3] = true;
         }
     }
     return checks;
+}
+
+const getEmployeeById = async (id) => {
+    var res = await axios.get(baseUrl+'Employee/'+id);
+    return res.data;
 }
 
 const getEmployee = async(page, limmit) => {
@@ -80,6 +85,7 @@ const deleteEmployee = async(code) => {
 }
 
 export default {
+    getEmployeeById,
     getEmployee,
     numberEmployee,
     getEmployeeByKey,

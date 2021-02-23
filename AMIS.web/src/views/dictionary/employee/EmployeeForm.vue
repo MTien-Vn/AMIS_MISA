@@ -87,8 +87,8 @@
                     </div>
                     <div class="contact-bankAccount">
                         <div class="title">
-                            <div v-on:click="handleChangeTab('contactContent')" class="contact-title">Liên hệ</div>
-                            <div v-on:click="handleChangeTab('bankAccountContent')" class="bank-account-title">Tài khoản ngân hàng</div>
+                            <div v-on:click="handleChangeTab('contactContent')" class="contact-title" :class="{inActiveClass:isActive1}">Liên hệ</div>
+                            <div v-on:click="handleChangeTab('bankAccountContent')" class="bank-account-title" :class="{inActiveClass:isActive2}">Tài khoản ngân hàng</div>
                         </div>
                         <div v-if="tabSelected === 'contactContent'" class="contact-content">
                             <div class="contact-address">
@@ -171,6 +171,7 @@ import BaseButton from '../../../components/BaseComponent/BaseButton.vue'
 import BaseCancelButton from '../../../components/BaseComponent/BaseCancelButton.vue'
 import employeeService from '../../../service/employeeService/employeeService'
 import employeeDepartmentService from '../../../service/employeeService/employeeDepartmentService'
+import employeeAccountBanks from '../../../service/employeeService/employeeAccountBankService'
 // import employeeBankAccountService from '../../../service/employeeService/employeeAccountBankService'
 import config from '../../../config.json'
 
@@ -179,6 +180,7 @@ export default {
     name: "EmployeeForm",
     props: {
         isHide: Boolean,
+        employeeIdPro: String,
     },
 
     data() {
@@ -200,12 +202,15 @@ export default {
                 EmployeeId: ''
             },
             checkRequiredField: [false, false, false, false],
+            isActive1: true,
+            isActive2: false,
         }
     },
 
     methods: {
         handleCloseForm(){
             this.$emit('handleClose', true);
+            // this.$parent.
         },
 
         handleCancle(){
@@ -220,6 +225,9 @@ export default {
 
         handleChangeTab(tab){
             this.tabSelected = tab;
+            var tem = this.isActive1;
+            this.isActive1 = !this.isActive2;
+            this.isActive2 = tem;
         },
 
         handleDeleteAccount(accountBank){
@@ -235,6 +243,7 @@ export default {
         handleAddRow(){
             var accountBank = {};
             this.employeeModel.EmployeeAccountBanks.push(accountBank);
+            console.log('ham nay da chay');
         },
 
         handleDeleteAll(){
@@ -269,6 +278,10 @@ export default {
 
     async created() {
         this.employeeDepartmentList = await employeeDepartmentService.getEmployeeDepartment();
+        if(this.employeeIdPro !== ''){
+            this.employeeModel.Employee = employeeService.getEmployeeById(this.employeeIdPro);
+            this.employeeModel.EmployeeAccountBanks = employeeAccountBanks.getEmployeeBankByEmployeeId(this.employeeIdPro);
+        }
     },
 }
 </script>
@@ -276,6 +289,10 @@ export default {
 <style scoped>
 .hideFormClass{
     display: none;
+}
+
+.inActiveClass{
+    background-color: #EBF4FF;
 }
 
 .dialog-modal {
@@ -333,7 +350,7 @@ export default {
 .body-dialog{
     width: auto;
     height: auto;
-    padding: 32px;
+    padding: 0 32px 32px 32px;
 }
 
 .general{
@@ -362,7 +379,9 @@ export default {
     display: flex;
     align-items: center;
 }
-
+.contact-title, .bank-account-title{
+    padding: 4px;
+}
 .contact-title, .bank-account-title, .contact-content, .bank-account-content{
     border: 1px solid #bbbbbb;
 }
@@ -410,8 +429,7 @@ export default {
     height: 40px;
     display: flex;
     align-items: center;
-    border-top: 1px solid #bbbbbb;
-    padding: 32px;
+    padding: 0 32px 32px 32px;
 }
 
 .del-icon{
@@ -425,9 +443,6 @@ export default {
     background-color: red;
 }
 
-.cancel{
-    
-}
 
 .save{
     position: absolute;
