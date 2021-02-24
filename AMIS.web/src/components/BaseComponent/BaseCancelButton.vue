@@ -22,11 +22,11 @@ export default {
     height: 40px;
     font-size: 13px;
     color: black;
-    font-family: GoogleSans-Regular;
+    font-family: notosans-Regular;
     padding-left: 16px;
     padding-right: 16px;
     outline: none;
-    border: none;
+    border: 1px solid #bbbbbb;
     cursor: pointer;
     min-width: 100px;
     justify-content: center;

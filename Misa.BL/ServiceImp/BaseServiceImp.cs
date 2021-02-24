@@ -43,6 +43,16 @@ namespace Misa.BL.ServiceImp
             if (serviceResult.MisaCode == MisaEmun.Scuccess)
             {
                 var affect = baseRepository.InsertEntity(entity);
+                if (affect == 0)
+                {
+                    serviceResult.MisaCode = MisaEmun.False;
+                    serviceResult.Messenger.Add(Resources.False);
+                }
+            }
+            else
+            {
+                serviceResult.MisaCode = MisaEmun.False;
+                serviceResult.Messenger.Add(Resources.False);
             }
             return serviceResult;
 
@@ -55,6 +65,16 @@ namespace Misa.BL.ServiceImp
             if (serviceResult.MisaCode == MisaEmun.Scuccess)
             {
                 var affect = baseRepository.UpdateEntity(entity);
+                if(affect == 0)
+                {
+                    serviceResult.MisaCode = MisaEmun.False;
+                    serviceResult.Messenger.Add(Resources.False);
+                }
+            }
+            else
+            {
+                serviceResult.MisaCode = MisaEmun.False;
+                serviceResult.Messenger.Add(Resources.False);
             }
             return serviceResult;
         }
@@ -67,6 +87,11 @@ namespace Misa.BL.ServiceImp
             {
                 serviceResult.MisaCode = MisaEmun.False;
                 serviceResult.Messenger.Add(Resources.Error_Delete);
+            }
+            else
+            {
+                serviceResult.MisaCode = MisaEmun.Scuccess;
+                serviceResult.Messenger.Add(Resources.Success_Delete);
             }
             return serviceResult;
         }

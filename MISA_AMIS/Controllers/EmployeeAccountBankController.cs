@@ -20,12 +20,24 @@ namespace MISA_AMIS.Controllers
             employeeAccountBankService = _employeeAccountBankService;
         }
 
+        /// <summary>
+        /// lấy danh sách tài khoản ngân hàng theo id nhân viên
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns></returns>
+        /// created: Manh Tien(22/2/2021)
         [HttpGet("list/{employeeId}")]
         public IEnumerable<EmployeeAccountBank> GetEmployeeAccountBankList(string employeeId)
         {
             return employeeAccountBankService.GetAccountBanksByEmployeeId(employeeId);
         }
 
+        /// <summary>
+        /// xóa tk ngân hàng theo id tài khoản ngân hàng
+        /// </summary>
+        /// <param name="bankAccountId"></param>
+        /// <returns></returns>
+        /// created: Manh Tien(22/2/2021)
         [HttpDelete("{bankAccountId}")]
         public ServiceResult DeleteAccountBank(string bankAccountId)
         {

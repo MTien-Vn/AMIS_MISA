@@ -142,6 +142,15 @@ namespace Misa.BL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Không thành công.
+        /// </summary>
+        public static string False {
+            get {
+                return ResourceManager.GetString("False", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thành công.
         /// </summary>
         public static string Success {

@@ -13,7 +13,7 @@ namespace Misa.BL.Entity
         /// <summary>
         /// id số tài khoản
         /// </summary>
-        public Guid EmployeeAccountId { get; set; }
+        public Guid? EmployeeAccountId { get; set; }
 
         /// <summary>
         /// số tài khoản ngân hàng của nhân viên
@@ -38,7 +38,7 @@ namespace Misa.BL.Entity
         /// <summary>
         /// id nhân viên sử dụng tài khoản ngân hàng
         /// </summary>
-        public Guid EmployeeId { get; set; }
+        public Guid? EmployeeId { get; set; }
 
         /// <summary>
         /// trạng thái tài khoản ngân hàng nhân viên, 0-ngưng hđ; 1-hoạt động

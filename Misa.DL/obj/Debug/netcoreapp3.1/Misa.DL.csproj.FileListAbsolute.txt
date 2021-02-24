@@ -34,3 +34,15 @@ E:\Misa\AMIS\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.csproj.CoreCompileInputs.ca
 E:\Misa\AMIS\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.csproj.CopyComplete
 E:\Misa\AMIS\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.dll
 E:\Misa\AMIS\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.pdb
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\bin\Debug\netcoreapp3.1\Misa.DL.deps.json
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\bin\Debug\netcoreapp3.1\Misa.DL.dll
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\bin\Debug\netcoreapp3.1\Misa.DL.pdb
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\bin\Debug\netcoreapp3.1\Misa.BL.dll
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\bin\Debug\netcoreapp3.1\Misa.BL.pdb
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.csprojAssemblyReference.cache
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.AssemblyInfoInputs.cache
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.AssemblyInfo.cs
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.csproj.CoreCompileInputs.cache
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.csproj.CopyComplete
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.dll
+D:\AMIS_MISA\AMIS_MISA\Misa.DL\obj\Debug\netcoreapp3.1\Misa.DL.pdb

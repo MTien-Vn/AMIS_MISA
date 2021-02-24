@@ -96,7 +96,7 @@ namespace Misa.BL.Entity
         /// <summary>
         /// id số tài khoản
         /// </summary>
-        public Guid EmployeeAccountId { get; set; }
+        public Guid? EmployeeAccountId { get; set; }
 
         /// <summary>
         /// số tài khoản ngân hàng của nhân viên

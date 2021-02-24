@@ -101,15 +101,15 @@ namespace Misa.BL.ServiceImp.EmployeeServiceImp
             var employee = employeeModel.Employee;
             var employeeAccountBank = employeeModel.EmployeeAccountBanks;
 
-            if (employee.EmployeeId.Equals(Guid.Empty))
+            if (employee.EmployeeId.Equals(Guid.Empty) || employee.EmployeeId == null)
             {
-                
-                employee.EmployeeId = new Guid();
+                employee.EmployeeId = Guid.NewGuid();
                 var serResultEmployee = this.InsertT(employee);
                 if(serResultEmployee.MisaCode == MisaEmun.Scuccess)
                 {
                     foreach (var accountBank in employeeAccountBank)
                     {
+                        accountBank.EmployeeId = employee.EmployeeId;
                         var serResultBank = employBankService.InsertT(accountBank);
                         if(serResultBank.MisaCode != MisaEmun.Scuccess)
                         {
@@ -124,13 +124,23 @@ namespace Misa.BL.ServiceImp.EmployeeServiceImp
                 var serResultEmployee = this.UpdateT(employee, employee.EmployeeId.ToString());
                 if (serResultEmployee.MisaCode == MisaEmun.Scuccess)
                 {
-                    foreach (var accountBank in employeeAccountBank)
+                    var serResultBank = employBankService.DeleteEmployeeAccountBankByEmployeeId(employee.EmployeeId.ToString());
+                    if(serResultBank.MisaCode == MisaEmun.Scuccess)
                     {
-                        var serResultBank = employBankService.UpdateT(accountBank, accountBank.EmployeeAccountId.ToString());
-                        if (serResultBank.MisaCode != MisaEmun.Scuccess)
+                        foreach (var accountBank in employeeAccountBank)
                         {
-                            return serResultBank;
+                            serResultBank.Messenger.RemoveAt(0);
+                            accountBank.EmployeeId = employee.EmployeeId;
+                            serResultBank = employBankService.InsertT(accountBank);
+                            if (serResultBank.MisaCode != MisaEmun.Scuccess)
+                            {
+                                return serResultBank;
+                            }
                         }
+                    }
+                    else
+                    {
+                        return serResultBank;
                     }
                 }
                 return serResultEmployee;

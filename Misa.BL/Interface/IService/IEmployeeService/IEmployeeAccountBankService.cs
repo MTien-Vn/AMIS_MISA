@@ -17,6 +17,14 @@ namespace Misa.BL.IService.IEmployeeService
         /// <returns>đối tượng serviceResult</returns>
         /// created: ManhTien(22/2/2021)
         public ServiceResult DeleteEmployeeAccountBank(string id);
+
+        /// <summary>
+        /// xóa tài khoản ngân hàng nhân viên bằng id nhân viên
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns>đối tượng serviceResult</returns>
+        /// created: ManhTien(22/2/2021)
+        public ServiceResult DeleteEmployeeAccountBankByEmployeeId(string employeeId);
         #endregion
 
         #region filter AccountBank

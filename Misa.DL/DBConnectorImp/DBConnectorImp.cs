@@ -109,7 +109,14 @@ namespace Misa.DL.DBConnectorImp
                 var propertyType = property.PropertyType;
                 if (propertyType == typeof(Guid) || propertyType == typeof(Guid?))
                 {
-                    propertyValue = propertyValue.ToString();
+                    if (propertyValue == null)
+                    {
+                        propertyValue = "";
+                    }
+                    else
+                    {
+                        propertyValue = propertyValue.ToString();
+                    }
                 }
                 dynamicParameters.Add($"@{propertyName}", propertyValue);
             }

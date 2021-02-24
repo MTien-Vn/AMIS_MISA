@@ -144,6 +144,9 @@
   <data name="Exception_User_Mess" xml:space="preserve">
     <value>Vui lòng liên hệ Misa để nhận trợ giúp</value>
   </data>
+  <data name="False" xml:space="preserve">
+    <value>Không thành công</value>
+  </data>
   <data name="Success" xml:space="preserve">
     <value>Thành công</value>
   </data>

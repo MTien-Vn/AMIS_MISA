@@ -7,15 +7,16 @@
                     <div class="icon"></div>
                     <div class="content-text">{{textContent}}</div>
                 </div>
+                <div style="padding: 0 16px 0 16px"><hr></div>
                 <div class="pop-up-footer">
-                    <div v-on:click="cancel">
+                    <div v-on:click="cancel" class="cancel-btn">
                         <BaseCancelButton  
                             :text="textCancel" 
                             class="re-background-color"/>
                     </div>
                     
-                    <div v-on:click="confirm">
-                        <BaseCancelButton 
+                    <div v-on:click="confirm" class="confirm-btn">
+                        <BaseButton 
                             :text="textConfirm" />
                     </div>
                     
@@ -27,10 +28,12 @@
 
 <script>
 import BaseCancelButton from '../BaseComponent/BaseCancelButton';
+import BaseButton from './BaseButton.vue';
 export default {
     name: 'BasePopUpWarn',
     components: {
-        BaseCancelButton
+        BaseCancelButton,
+        BaseButton
     },
     props: {
         textHeader: String,
@@ -44,7 +47,7 @@ export default {
             this.$emit("closePopUp", true);
         },
         confirm(){
-            this.$emit('confirmPopUp', true);
+            this.$emit("confirmPopUp", true);
         }
     }
 
@@ -74,7 +77,7 @@ export default {
     position: fixed;
     left: 50%;
     right: 50%;
-    background-color: #E9EBEE;
+    background-color: #ffffff;
     z-index: 3;
     margin-top: auto;
     margin-left: -200px;
@@ -95,8 +98,8 @@ export default {
 .pop-up-content{
     font-size: 13px;
     padding: 16px;
-    border-bottom: 1px solid #BBBBBB;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .icon{
@@ -107,14 +110,21 @@ export default {
 
 .content-text{
     text-align: center;
+    padding-left: 64px;
 }
 
 .pop-up-footer{
     height: 60px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     padding: 16px;
 }
+
+.confirm-btn{
+    position: absolute;
+    right: 8px;
+}
+
 
 .re-background-color{
     background-color: #ffffff;

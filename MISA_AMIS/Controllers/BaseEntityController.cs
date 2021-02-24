@@ -19,6 +19,13 @@ namespace MISA_AMIS.Controllers
         {
             this.baseService = _baseService;
         }
+        /// <summary>
+        /// api lấy dữ liệu phân trang
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="limmit"></param>
+        /// <returns>danh sách</returns>
+        /// created: Manh Tien(22/2/2021)
         // GET: api/<BaseController>
         [HttpGet("{page}/{limmit}")]
         public IEnumerable<T> Get(long page = 1, long limmit = 10)
@@ -26,17 +33,36 @@ namespace MISA_AMIS.Controllers
             return baseService.GetEntity(page, limmit);
         }
 
+        /// <summary>
+        /// api lấy toàn bộ danh sách
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="limmit"></param>
+        /// <returns>danh sách</returns>
+        /// created: Manh Tien(22/2/2021)
         [HttpGet]
         public IEnumerable<T> GetAll(long page = 1, long limmit = 10)
         {
             return baseService.GetEntity(page, limmit);
         }
+
+        /// <summary>
+        /// api lấy đối tượng theo id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// created: Manh Tien(22/2/2021)
         [HttpGet("{id}")]
         public T GetEntityById(string id)
         {
             return baseService.GetEntityById(id);
         }
 
+        /// <summary>
+        /// api lấy số lượng của đói tượng trong db
+        /// </summary>
+        /// <returns></returns>
+        /// created: Manh Tien(22/2/2021)
         [HttpGet("numberEntity")]
         public long NumberEntity()
         {
@@ -44,6 +70,12 @@ namespace MISA_AMIS.Controllers
         }
 
         // POST api/<BaseController>
+        /// <summary>
+        /// api lưu đối tương
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns>service result </returns>
+        /// created: Manh Tien(22/2/2021)
         [HttpPost]
         public ServiceResult Post([FromBody] T entity)
         {
@@ -51,6 +83,13 @@ namespace MISA_AMIS.Controllers
         }
 
         // PUT api/<BaseController>/5
+        /// <summary>
+        /// api cập nhật đối tượng
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        /// created: Manh Tien(22/2/2021)
         [HttpPut("{id}")]
         public ServiceResult Put(string id, [FromBody] T entity)
         {

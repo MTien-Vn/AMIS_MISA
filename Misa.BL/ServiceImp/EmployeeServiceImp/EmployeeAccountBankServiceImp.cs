@@ -25,6 +25,16 @@ namespace Misa.BL.ServiceImp.EmployeeServiceImp
             values.Add(id);
             return base.DeleteT(fieldNames, values);
         }
+
+        public ServiceResult DeleteEmployeeAccountBankByEmployeeId(string employeeId)
+        {
+            List<string> fieldNames = new List<string>();
+            List<string> values = new List<string>();
+            fieldNames.Add("EmployeeId");
+            values.Add(employeeId);
+            return base.DeleteT(fieldNames, values);
+        }
+
         #endregion
 
         #region filter employeeBank

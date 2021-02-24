@@ -29,12 +29,17 @@ const validate = (employee) => {
     if (!employee.EmployeeDepartmentId) {
         checks[2] = true;
     }
-    if (!employee.Email) {
+    if (employee.Email) {
         if (!isEmail(employee.Email)) {
             checks[3] = true;
         }
     }
     return checks;
+}
+
+const getEmployeeById = async(id) => {
+    var res = await axios.get(baseUrl + 'Employee/' + id);
+    return res.data;
 }
 
 const getEmployee = async(page, limmit) => {
@@ -62,6 +67,15 @@ const numberEmployeeByKey = async(key) => {
     return res.data;
 }
 
+const getEmployeeCodeMax = async() => {
+    var res = await axios.get(baseUrl + 'Employee/employeeCodeMax');
+    var employeeCode = res.data;
+    var letterPath = employeeCode.slice(0, 2);
+    var digitPath = employeeCode.slice(-5);
+    digitPath = parseInt(digitPath) + 1;
+    return letterPath + digitPath;
+}
+
 const saveEmployee = async(employeeModel) => {
     if (employeeModel.Employee.EmployeeId === '') {
         var res = await axios.post(baseUrl + 'Employee/saveEmployee', employeeModel);
@@ -74,18 +88,26 @@ const saveEmployee = async(employeeModel) => {
 }
 
 
-const deleteEmployee = async(code) => {
+const deleteEmployeeByCode = async(code) => {
     var res = await axios.delete(baseUrl + 'Employee/' + code);
     return res.data;
 }
 
+const deleteEmployeeById = async(id) => {
+    var res = await axios.delete(baseUrl + 'Employee/ById' + id);
+    return res.data;
+}
+
 export default {
+    getEmployeeById,
     getEmployee,
     numberEmployee,
     getEmployeeByKey,
     numberEmployeeByKey,
     saveEmployee,
-    deleteEmployee,
+    deleteEmployeeByCode,
+    deleteEmployeeById,
     getEmployeeByEmployeeCode,
     validate,
+    getEmployeeCodeMax,
 }
