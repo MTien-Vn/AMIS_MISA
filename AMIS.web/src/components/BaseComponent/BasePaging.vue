@@ -130,7 +130,6 @@ export default {
     display: flex;
     align-items: center;
     padding: 0 16px;
-    bottom: 0;
 }
 
 .paging-bar .paging-total-recored {

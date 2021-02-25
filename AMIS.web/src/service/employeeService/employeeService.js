@@ -90,6 +90,7 @@ const saveEmployee = async(employeeModel) => {
 
 const deleteEmployeeByCode = async(code) => {
     var res = await axios.delete(baseUrl + 'Employee/' + code);
+    
     return res.data;
 }
 

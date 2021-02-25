@@ -24,6 +24,14 @@ td {
     padding-left: 10px;
 }
 
+th{
+    background-color: #bbbbbb;
+    position: sticky;
+    top: 0;
+    white-space: nowrap;
+    z-index: 1;
+}
+
 .cell {
     height: 40px;
     width: auto;

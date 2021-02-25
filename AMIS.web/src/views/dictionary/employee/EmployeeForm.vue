@@ -18,7 +18,7 @@
                                         <span class="require-charecter">*</span>
                                         <span class="require-charecter" v-if="checkRequiredField[0] === true">Không được trống</span>
                                     </div>
-                                    <div><input type="text" v-model="employeeModel.Employee.EmployeeCode"/></div>
+                                    <div><input type="text" v-model="employeeModel.Employee.EmployeeCode" ref="employeeCode"/></div>
                                 </div>
                                 <div class="employeeName">
                                     <div>
@@ -226,7 +226,7 @@ export default {
         handleChangeTab(tab){
             this.tabSelected = tab;
             var tem = this.isActive1;
-            this.isActive1 = !this.isActive2;
+            this.isActive1 = this.isActive2;
             this.isActive2 = tem;
         },
 
@@ -243,7 +243,6 @@ export default {
         handleAddRow(){
             var accountBank = {};
             this.employeeModel.EmployeeAccountBanks.push(accountBank);
-            console.log('ham nay da chay');
         },
 
         handleDeleteAll(){
@@ -281,6 +280,11 @@ export default {
         var employeeCode = await employeeService.getEmployeeCodeMax();
         this.employeeModel.Employee.EmployeeCode = employeeCode;
     },
+
+    mounted(){
+        
+        this.$refs.employeeCode.focus();
+    },
 }
 </script>
 
@@ -291,6 +295,8 @@ export default {
 
 .inActiveClass{
     background-color: #EBF4FF;
+    height: 32px;
+    border: none;
 }
 
 .dialog-modal {
@@ -384,6 +390,11 @@ export default {
     border: 1px solid #bbbbbb;
 }
 
+.contact-content, .bank-account-content{
+    height: 200px;
+    overflow-y: auto;
+}
+
 .employeeName, .employeeCode, .dob, .gender, .indentity, .date{
     width: 50%;
     padding-right: 8px;
@@ -412,15 +423,10 @@ export default {
     cursor: pointer;
 }
 
-.contact-title, .bank-account-title:hover{
+/* .contact-title, .bank-account-title:hover{
     background-color: #EBF4FF;
-}
+} */
 
-.contact-title, .bank-account-title:active{
-    height: 32px;
-    border: none;
-    background-color: #EBF4FF;
-}
 
 .footer-form{
     width: auto;

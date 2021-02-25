@@ -45,6 +45,8 @@
 .navbar .navbar-content {
     width: 100%;
     color: #ffffff;
+    height: calc(100% - 60px);
+    overflow-y: auto;
 }
 
 .navbar .navbar-content .navbar-item {

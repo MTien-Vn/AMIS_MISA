@@ -1,6 +1,6 @@
 .content {
     width: calc(100% - 181px);
-    height: calc(100% - 51px);
+    height: calc(100% - 55px);
     border-bottom: 2px solid #bbbbbb;
     position: absolute;
     top: 50px;
@@ -59,10 +59,8 @@
 
 .content .content-body {
     width: auto;
-    height: calc(100% - 51px);
+    height: calc(100% - 55px);
     border-bottom: 3px solid #bbbbbb;
-    overflow-x: auto;
-    overflow-y: auto;
     background-color: #ffffff;
     position: absolute;
     right: 16px;
@@ -73,11 +71,24 @@
     margin: 8px;
 }
 
+.content-body-search{
+    height: 40px;
+}
+
+.content-body-footer{
+    height: 60px;
+    background-color: #ffffff;
+}
+
 .content-body-table {
     padding: 0px 8px;
     bottom: 60px;
+    height: 87%;
+    overflow: scroll;
 }
 
 .content-body-footer {
+    z-index: 1;
+    background-color: #ffffff;
     bottom: 0px;
 }

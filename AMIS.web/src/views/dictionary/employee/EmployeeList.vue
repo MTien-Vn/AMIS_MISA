@@ -222,6 +222,8 @@ export default {
       );
       this.total = await EmployeeService.numberEmployee();
       this.totalPage = Math.ceil(this.total / this.limmit);
+      
+      console.log(this.employeeList);
     },
 
     async handleSearch(keyWord) {
@@ -268,12 +270,11 @@ export default {
       this.getEmployee();
     },
 
-    handleConfirmPopUpWarn(){
-      EmployeeService.deleteEmployeeByCode(this.employeeCode);
+    async handleConfirmPopUpWarn(){
+      await EmployeeService.deleteEmployeeByCode(this.employeeCode);
       this.employeeCode = '';
       this.isHidePopUpWarn = true;
-      this.getEmployee();
-      this.getEmployee();
+      await this.getEmployee();
     },
   },
 
@@ -285,6 +286,11 @@ export default {
     this.total = await EmployeeService.numberEmployee();
     this.totalPage = Math.ceil(this.total / this.limmit);
   },
+
+  // updated(){
+      
+  //     this.getEmployee();
+  // }
 };
 </script>
 
